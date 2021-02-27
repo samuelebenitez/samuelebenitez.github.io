@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+
+$dark-theme-primary-color: #1e212d;
+$normal-theme-primary-color: #faeece;
+$secondary-color: #b68973;
+$terciary-color: #eabf9f;
+$primary-font-family: "Montserrat", sans-serif;
+$secondary-font-family: "Sacramento", cursive;
+$total-width: 100vw;
+
+.welcome {
+  height: 100vh;
+  background-color: $dark-theme-primary-color;
+  background-image: url(../../public/clouds.svg);
+  padding: 24px;
+  .top_container {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .h1 {
+      color: $normal-theme-primary-color;
+      text-transform: uppercase;
+      font-family: $primary-font-family;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      margin-left: 70px;
+
+      filter: brightness(0.8);
+    }
+  }
+  .center_container {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .name_box {
+      text-transform: capitalize;
+      font-family: $secondary-font-family;
+      font-size: 3em;
+      color: $normal-theme-primary-color;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      filter: brightness(0.8);
+      .big_name {
+        margin: 0;
+        padding-right: 0.5em;
+      }
+      .big_surname {
+        margin: 0;
+      }
+    }
+    .illustration {
+      svg {
+        width: calc(100vw - 48px);
+      }
+    }
+  }
+  .bottom_container {
+    height: 15vh;
+
+    .links_box {
+      font-family: $primary-font-family;
+      color: $normal-theme-primary-color;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-transform: uppercase;
+      text-align: center;
+      max-width: 300px;
+      margin: auto;
+    }
+  }
+}

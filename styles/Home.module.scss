@@ -12,157 +12,93 @@ $total-width: 100vw;
 .home_container {
   width: $total-width;
   overflow-x: hidden;
-  .toggle_menu {
-    width: $total-width;
-    padding: 24px;
-    height: 100vh;
+  scroll-margin: 0 50px;
+
+  .burger_icon {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
     background-color: $normal-theme-primary-color;
-    .top {
-      height: 10vh;
+    z-index: 99;
+    outline: none;
+    transition: 0.5s;
+    opacity: 0;
 
-      display: flex;
-      align-items: center;
-
-      .burger_icon {
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        // box-shadow: 0 0 5px 4px rgba($normal-theme-primary-color, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        position: fixed;
-        cursor: pointer;
-        background-color: $normal-theme-primary-color;
-        svg {
-          width: 30px;
-          height: 30px;
-          path {
-            fill: $dark-theme-primary-color;
-          }
-        }
-      }
+    filter: brightness(0.8);
+    &:hover {
+      transform: rotate(90deg);
     }
-    .bottom {
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-bottom: 10vh;
-      .link {
-        margin: 2em;
-        text-transform: uppercase;
-        color: $dark-theme-primary-color;
-        font-family: $primary-font-family;
-        font-size: 1em;
-        font-weight: 700;
+    svg {
+      width: 30px;
+      height: 30px;
+      path {
+        fill: $dark-theme-primary-color;
       }
     }
   }
-  .welcome {
+  .sidebar {
+    width: 200px;
+    height: 200px;
+    background-color: $normal-theme-primary-color;
+    position: fixed;
+    border-radius: 50%;
+    top: -200px;
+    left: -200px;
+    filter: brightness(0.8);
+    z-index: 2;
+  }
+  .sidebar_links {
+    position: fixed;
+    visibility: hidden;
+    width: $total-width;
     height: 100vh;
-    background-color: $dark-theme-primary-color;
-    padding: 24px;
-    .top_container {
-      height: 10vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .burger_icon {
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        // box-shadow: 0 0 5px 4px rgba($normal-theme-primary-color, 0.3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        position: fixed;
-        cursor: pointer;
-        background-color: $normal-theme-primary-color;
-        svg {
-          width: 30px;
-          height: 30px;
-          path {
-            fill: $dark-theme-primary-color;
-          }
-        }
-      }
-      .h1 {
-        color: $normal-theme-primary-color;
-        text-transform: uppercase;
-        font-family: $primary-font-family;
-        font-weight: 600;
-        font-size: 12px;
-        letter-spacing: 2px;
-        white-space: nowrap;
-        margin-left: 70px;
-      }
-    }
-    .center_container {
-      height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+    z-index: 3;
+    margin: 8em auto;
 
-      .name_box {
-        text-transform: capitalize;
-        font-family: $secondary-font-family;
-        font-size: 3em;
-        color: $normal-theme-primary-color;
-        .big_name {
-          margin: 0;
-          padding-right: 0.5em;
-        }
-        .big_surname {
-          margin: 0;
-          padding-left: 0.5em;
-        }
-      }
-      .illustration {
-        svg {
-          width: calc(100vw - 48px);
-        }
-      }
-    }
-    .bottom_container {
-      height: 15vh;
-
-      .links_box {
-        font-family: $primary-font-family;
-        color: $normal-theme-primary-color;
-        font-size: 12px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        text-transform: uppercase;
-        text-align: center;
-        max-width: 300px;
-        margin: auto;
-      }
+    a {
+      font-size: 1.7em;
+      display: block;
+      margin: 3em auto;
+      font-family: $primary-font-family;
+      color: $dark-theme-primary-color;
+      text-transform: uppercase;
+      opacity: 1;
+      text-align: center;
     }
   }
+
   .about {
     height: 200vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    .about_intro {
+    .box_intro {
       height: 100vh;
       width: $total-width;
-      background-color: $normal-theme-primary-color;
+      background-color: $terciary-color;
       display: flex;
       align-items: center;
       justify-content: center;
-      h1 {
+      filter: brightness(0.8);
+      .box_intro_text {
         font-family: $secondary-font-family;
         font-size: 4em;
         color: $dark-theme-primary-color;
       }
+    }
+    .box_info {
+      height: 100vh;
+      width: $total-width;
+      background-color: $dark-theme-primary-color;
     }
   }
 }
