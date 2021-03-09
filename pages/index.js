@@ -1,18 +1,21 @@
 import style from "../styles/Home.module.scss";
+import projects from "../public/projects.json";
 import Welcome from "../components/Welcome";
-import { burguerIconDarkMode } from "../styles/svg-resources";
-
-import gsap from "gsap";
+import Intro from "../components/Intro";
+import SidebarLink from "../components/SidebarLink";
+import Project from "../components/Project";
+import { burguerIconDarkMode, downloadIcon } from "../styles/svg-resources";
+import { gsap } from "gsap/dist/gsap.js";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger.js";
 import { useRef, useEffect, useState } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   //References to the DOM
   let menuIcon = useRef(null);
   let sidebar = useRef(null);
   let sidebarLinks = useRef(null);
-  let link = useRef(null);
-  let link1 = useRef(null);
-  let link2 = useRef(null);
 
   //toggle state to switch between functions applicated on burger icon
   const [show, setShow] = useState(false);
@@ -26,19 +29,17 @@ export default function Home() {
   // function to open sidebar
   function openSidebar() {
     gsap.to(sidebar, { x: 100, y: 100, scale: 15, duration: 1, ease: "slow" });
-    gsap.to(sidebarLinks, { delay: 1, visibility: "visible" });
-    gsap.to(link, { opacity: 1, y: -10, delay: 1.1 });
-    gsap.to(link1, { opacity: 1, y: -10, delay: 1.3 });
-    gsap.to(link2, { opacity: 1, y: -10, delay: 1.5 });
+    gsap.fromTo(
+      sidebarLinks,
+      { delay: 1, visibility: "hidden", y: -10, opacity: 0 },
+      { delay: 1, visibility: "visible", y: 0, opacity: 1 }
+    );
     setShow(true);
   }
   //funcion to close sidebar
   function closeSidebar() {
     gsap.to(sidebar, { x: 0, y: 0, scale: 1, duration: 0.5, ease: "circ" });
     gsap.to(sidebarLinks, { visibility: "hidden" });
-    gsap.to(link, { opacity: 0, y: 0, delay: 1 });
-    gsap.to(link1, { opacity: 0, y: 0, delay: 1 });
-    gsap.to(link2, { opacity: 0, y: 0, delay: 1 });
     setShow(false);
   }
 
@@ -54,34 +55,88 @@ export default function Home() {
       <div ref={(el) => (sidebar = el)} className={style.sidebar}></div>
 
       <div className={style.sidebar_links} ref={(el) => (sidebarLinks = el)}>
-        <a ref={(el) => (link = el)} href="#about" onClick={closeSidebar}>
-          Sobre mi
-        </a>
-        <a ref={(el) => (link1 = el)} href="#projects" onClick={closeSidebar}>
-          Proyectos
-        </a>
-        <a ref={(el) => (link2 = el)} href="#contact" onClick={closeSidebar}>
-          Contacto
-        </a>
+        <SidebarLink
+          label="Sobre mí"
+          closeSidebar={closeSidebar}
+          openSidebar={openSidebar}
+          show={show}
+          refname="#about"
+        />
+        <SidebarLink
+          label="Proyectos"
+          closeSidebar={closeSidebar}
+          openSidebar={openSidebar}
+          show={show}
+          refname="#projects"
+        />
+
+        <SidebarLink
+          label="Contacto"
+          closeSidebar={closeSidebar}
+          openSidebar={openSidebar}
+          show={show}
+          refname="#contact"
+        />
       </div>
       <Welcome />
-      <section id="about" className={style.about}>
-        <div className={style.box_intro}>
-          <h1 className={style.box_intro_text}>Sobre mí</h1>
+      <section id="about" className={style.section_container}>
+        <Intro title="Sobre mí" />
+        <div className={style.box_about}>
+          <div className={style.container}>
+            <div className={style.img_box}>
+              <div className={style.img}></div>
+              <div className={style.text}>
+                <h2>
+                  ¡Hola! Mi nombre es Samuel Benítez y soy desarrollador
+                  frontend Jr
+                </h2>
+              </div>
+            </div>
+            <div className={style.profile_info}>
+              <p>
+                En marzo del año 2020 me decidí a estudiar programación (seré
+                sincero) por la demanda constante que veía de este tipo de
+                puestos. Previamente había abandonado mis estudios en la
+                licenciatura de Diseño de Imagen y Sonido en la Universidad de
+                Lanús, que si bien me gustaba bastante, los motivos fueron
+                asociados tambien a la demanda laboral y a las muchas horas que
+                demandaban las cursadas, junto con el trabajo. Debido a la
+                cuarentena, tuve mucho tiempo libre en mi casa, el cual dediqué
+                de lleno al frontend con esperanza de conseguir un trabajo
+                mejor, y para mi grata sorpresa, descubrí un mundo lleno de
+                posibilidades que venía tambien acompañado de la mano del
+                diseño, que siempre me apasionó. Hoy día sigo perfeccionándome
+                en tecnologías como React y Next JS para poder conseguir mi
+                empleo en IT. Actualmente estoy estudiando de forma autodidacta
+                programación e inglés.
+              </p>
+              <a
+                href="https://drive.google.com/file/d/1aXuzxtr5Kx4qCQGc2lK_nmiWK-t7fWIS/view?usp=drivesdk"
+                className={style.cv_icon}
+                target="_blank"
+              >
+                <span>{downloadIcon}</span>
+                <p>CV</p>
+              </a>
+            </div>
+          </div>
         </div>
-        <div className={style.box_info}></div>
       </section>
-      <section id="projects" className={style.about}>
-        <div className={style.box_intro}>
-          <h1 className={style.box_intro_text}>Proyectos</h1>
+      <section id="projects" className={style.section_container}>
+        <Intro title="Proyectos" />
+        <div className={style.box_projects}>
+          <div className={style.container}>
+            {projects.map((project) => (
+              <Project key={project.id} project={project} />
+            ))}
+          </div>
         </div>
-        <div className={style.box_info}></div>
       </section>
-      <section id="contact" className={style.about}>
-        <div className={style.box_intro}>
-          <h1 className={style.box_intro_text}>Contacto</h1>
+      <section id="contact" className={style.section_container}>
+        <Intro title="Contacto" />
+        <div className={style.box_contact}>
+          <div className={style.container}></div>
         </div>
-        <div className={style.box_info}></div>
       </section>
     </div>
   );

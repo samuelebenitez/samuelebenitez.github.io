@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Courflix",
+    "img": "https://i.ibb.co/6DyP03B/courflix-desktop-img.webp",
+    "img2": "https://i.ibb.co/W5XPT60/courflix-responsive-img.webp",
+    "description_short": "Proyecto copia de Netflix, realizado para el bootcamp CourseIt.",
+    "lenguages": ["HTML", "CSS", "Vanilla Javascript"],
+    "github_url": "https://github.com/samuelebenitez/musikit",
+    "deploy_url": "https://misikit.samuelebenitez.vercel.app",
+    "description_large": "Primer proyecto, hecho en JS Vanilla que simula la home page de Netflix. Uso de librería Slick para crear carrouseles de imágenes. "
+  },
+  {
+    "id": 2,
+    "name": "Dev.to Blog",
+    "img": "https://i.ibb.co/DwyBqVD/dev-blog-desktop-img.webp",
+    "img2": "https://i.ibb.co/Yp6vDS8/dev-blog-responsive-img.webp",
+    "description_short": "Proyecto copia de Dev.to, hecho con la API oficial de dicho sitio.",
+    "lenguages": ["HTML", "CSS", "Next JS"],
+    "github_url": "https://github.com/samuelebenitez/dev-to-blog",
+    "deploy_url": "https://devtoblog.vercel.app/",
+    "description_large": "Hecho en Next JS. Implementación de pages, rutas dinámicas y server side rendering."
+  },
+  {
+    "id": 3,
+    "name": "Musikit",
+    "img": "https://i.ibb.co/PtWhy9T/musikit-home-img.webp",
+    "description_short": "Proyecto copia de Spotify, usando su API oficial, con autenticación y tokens.",
+    "lenguages": ["HTML", "CSS", "Next JS"],
+    "github_url": "https://github.com/samuelebenitez/CourflixVanilla",
+    "deploy_url": "https://courflix-vanilla.vercel.app/",
+    "description_large": "Esta web simula la home page de Spotify y devuelve los datos reales del usuario gracias a su API oficial. Se pueden observar las playlists, artistas preferidos, albumes, podcasts y canciones. Aún no tiene diseño responsive. My bad(?"
+  }
+]

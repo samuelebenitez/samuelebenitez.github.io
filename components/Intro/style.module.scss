@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Meddon&display=swap");
+
+$dark-theme-primary-color: #1e212d;
+$normal-theme-primary-color: #faeece;
+$secondary-color: #b68973;
+$terciary-color: #eabf9f;
+$primary-font-family: "Montserrat", sans-serif;
+
+$secondary-font-family: "Meddon", cursive;
+$total-width: 100vw;
+
+.box_intro {
+  height: 100vh;
+  width: $total-width;
+  background-color: $dark-theme-primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .box_intro_text {
+    font-family: $secondary-font-family;
+    font-size: 4em;
+    color: $normal-theme-primary-color;
+    user-select: none;
+    @media (max-width: 768px) {
+      font-size: 2.2em;
+    }
+  }
+}
